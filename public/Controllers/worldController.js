@@ -3,7 +3,11 @@
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
 
-const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania", "China"]
+
+const errorCodes = {
+  notFound: 404,
+}
 
 const maxCountriesPerContinent = 5 // change the number to display more countries per continent
 
@@ -115,6 +119,20 @@ const countryCardTemplate = function (countryData, index) {
     `
 }
 
+const errorHandler = function (errorCode) {
+  let errorMessage = "Something went wrong. "
+
+  switch (errorCode) {
+    case errorCodes.notFound:
+      errorMessage = "Country not found"
+      break
+
+    default:
+      break
+  }
+  return errorMessage
+}
+
 const renderCountryTemplate = function (continentData) {
   for (let index = 0; index < maxCountriesPerContinent; index++) {
     const nameOfContinent = document.getElementById(continentData[0].region)
@@ -129,8 +147,6 @@ const renderNavBar = function () {
 }
 
 const renderContinentHeader = function () {
-  //prettier-ignore
-
   continents.forEach((continent) => {
     const continentDiv = continentDivTemplate(continent)
     continentsContainer.insertAdjacentHTML("beforeend", continentDiv)
@@ -146,13 +162,17 @@ const initialiseHTMLSetup = function () {
 const getRegionData = function (region) {
   fetch(`https://restcountries.com/v3.1/region/${region}`)
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(errorHandler(response.status))
+      }
+
       return response.json()
     })
     .then((data) => {
       renderCountryTemplate(data)
     })
     .catch((error) => {
-      return `An error has occured. ${error}`
+      console.error(`An error has occured. ${error}`)
     })
 }
 
