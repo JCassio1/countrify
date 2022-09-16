@@ -1,6 +1,7 @@
 "use strict"
 
 const bodyContainer = document.querySelector("body")
+const continentsContainer = document.querySelector(".continents")
 
 const navBarTemplate = function (logoUrl) {
   return `
@@ -39,9 +40,49 @@ const navBarTemplate = function (logoUrl) {
     `
 }
 
+const continentDivTemplate = function (continentName) {
+  return `
+    <div class="continent pl-5 pt-10" id="${continentName}">
+    <span
+      ><h1 class="text-5xl font-extrabold dark:text-white">${continentName}</h1></span
+    >
+  </div>
+    `
+}
+
 const appendNavBar = function () {
   const navBarPartial = navBarTemplate("/assets/logo/png-background.png")
   bodyContainer.insertAdjacentHTML("afterbegin", navBarPartial)
 }
 
-appendNavBar()
+const appendContinentHeader = function () {
+  //prettier-ignore
+  const continents = ['Africa', 'Europe', 'North America', 'South America', 'Australia', 'Asia', 'Antarctica']
+
+  continents.forEach((continent) => {
+    const continentDiv = continentDivTemplate(continent)
+    continentsContainer.insertAdjacentHTML("beforeend", continentDiv)
+  })
+}
+
+const initialiseHTMLSetup = function () {
+  appendNavBar()
+  appendContinentHeader()
+}
+
+// ============== Function CALLS ==================
+initialiseHTMLSetup()
+
+// ============== API CALLS ==================
+const getRegionData = function (region) {
+  fetch(`https://restcountries.com/v3.1/region/${region}`)
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((error) => {
+      return `An error has occured. ${error}`
+    })
+}
