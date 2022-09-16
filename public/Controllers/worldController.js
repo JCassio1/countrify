@@ -3,6 +3,8 @@
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
 
+const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+
 const maxCountriesPerContinent = 5
 
 const navBarTemplate = function (logoUrl) {
@@ -45,9 +47,9 @@ const navBarTemplate = function (logoUrl) {
 const continentDivTemplate = function (continentName) {
   return `
   <span
-  ><h1 class="text-5xl font-extrabold dark:text-white ">${continentName}</h1></span
+  ><h1 class="pl-7 pt-14 text-5xl font-extrabold dark:text-white ">${continentName}</h1></span
 >
-    <div class="continent pl-5 pt-10 wrapper" id="${continentName}">
+    <div class="continent pb-11 pl-5 pt-10 wrapper" id="${continentName}">
   </div>
     `
 }
@@ -119,7 +121,6 @@ const renderCountryTemplate = function (continentData) {
     const countryCard = countryCardTemplate(continentData[index], index)
     nameOfContinent.insertAdjacentHTML("beforeend", countryCard)
   }
-  //   console.log(continentData)
 }
 
 const renderNavBar = function () {
@@ -129,7 +130,6 @@ const renderNavBar = function () {
 
 const renderContinentHeader = function () {
   //prettier-ignore
-  const continents = ['Africa', 'Europe', 'North America', 'South America', 'Australia', 'Asia', 'Antarctica']
 
   continents.forEach((continent) => {
     const continentDiv = continentDivTemplate(continent)
@@ -158,4 +158,6 @@ const getRegionData = function (region) {
 
 // ============== Function CALLS ==================
 initialiseHTMLSetup()
-getRegionData("Africa")
+for (let index = 0; index < continents.length; index++) {
+  getRegionData(continents[index])
+}
