@@ -44,10 +44,10 @@ const navBarTemplate = function (logoUrl) {
 
 const continentDivTemplate = function (continentName) {
   return `
-    <div class="continent pl-5 pt-10" id="${continentName}">
-    <span
-      ><h1 class="text-5xl font-extrabold dark:text-white">${continentName}</h1></span
-    >
+  <span
+  ><h1 class="text-5xl font-extrabold dark:text-white ">${continentName}</h1></span
+>
+    <div class="continent pl-5 pt-10 wrapper" id="${continentName}">
   </div>
     `
 }
@@ -63,10 +63,12 @@ const calculatePopulation = function (population) {
 const countryCardTemplate = function (countryData, index) {
   return ` <div
     id = "${index}"
-    class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+    class="countryCard mr-4 w-80 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
     >
     <a href="#">
-      <img class="rounded-t-lg w-full" src="${countryData.flags.png}" alt="" />
+      <img class="rounded-t-lg w-full h-40" src="${
+        countryData.flags.png
+      }" alt="" />
     </a>
     <div class="p-5">
       <a href="#">
