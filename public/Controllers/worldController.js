@@ -3,7 +3,7 @@
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
 
-const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania", "China"]
+const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
 
 const errorCodes = {
   notFound: 404,
