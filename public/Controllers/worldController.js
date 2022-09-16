@@ -5,7 +5,7 @@ const continentsContainer = document.querySelector(".continents")
 
 const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
 
-const maxCountriesPerContinent = 5
+const maxCountriesPerContinent = 5 // change the number to display more countries per continent
 
 const navBarTemplate = function (logoUrl) {
   return `
