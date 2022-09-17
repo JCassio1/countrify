@@ -52,7 +52,7 @@ As a user, I want to view continents and their respective countries so that I ca
 
 Functional programming
 
-## ☄️ Improvements
+## ☄️ Future Improvements
 
 1. Lazy loading
 2. Search by country
