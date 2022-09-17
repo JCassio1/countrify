@@ -2,10 +2,10 @@
 
 Countrify is a beautiful web application that consumes API's to display a list of countries within each continent in the world.
 
-## Demo (coming soon)
+## Demo
 
 <p align="center">
-  <img src="https://cdn.dribbble.com/users/1761902/screenshots/8527483/media/9e88b2c1b2f4404045326469fbcc5a8b.gif" />
+  <img src="assets/demo/countrify-demo.gif" />
 </p>
 
 ## 🚀 Tech
