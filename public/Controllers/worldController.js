@@ -1,12 +1,9 @@
 "use strict"
 
-import { API_URL } from "./configuration/config"
-import { loadContinent } from "./dataModel"
+import { loadContinent, continents } from "./dataModel"
 
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
-
-const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
 
 const errorCodes = {
   notFound: 404,
