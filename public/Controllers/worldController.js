@@ -1,6 +1,7 @@
 "use strict"
 
 import { API_URL } from "./configuration/config"
+import { loadContinent } from "./dataModel"
 
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
@@ -171,15 +172,7 @@ const initialiseHTMLSetup = function () {
 
 // ============== API CALLS ==================
 const getRegionData = function (region) {
-  // console.log(`showing ${API_URL}`)
-  fetch(`${API_URL}${region}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(errorHandler(response.status))
-      }
-
-      return response.json()
-    })
+  loadContinent(`${region}`)
     .then((data) => {
       renderCountryTemplate(data)
     })
