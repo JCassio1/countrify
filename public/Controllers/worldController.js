@@ -1,5 +1,7 @@
 "use strict"
 
+import { API_URL } from "./configuration/config"
+
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
 
@@ -169,7 +171,8 @@ const initialiseHTMLSetup = function () {
 
 // ============== API CALLS ==================
 const getRegionData = function (region) {
-  fetch(`https://restcountries.com/v3.1/region/${region}`)
+  // console.log(`showing ${API_URL}`)
+  fetch(`${API_URL}${region}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(errorHandler(response.status))

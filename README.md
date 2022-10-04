@@ -16,6 +16,9 @@ Countrify is a beautiful web application that consumes API's to display a list o
 <div>
 <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_tailwind_icon_130128.png" width="5%" height="5%"> Tailwind
 </div>
+<div>
+<img src="https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-white-bg.png" width="5%" height="5%"> Webpack
+</div>
 
 ## ✋🏻 Pre-requisites
 

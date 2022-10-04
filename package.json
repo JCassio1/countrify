@@ -1,0 +1,24 @@
+{
+  "name": "countrify",
+  "version": "1.0.0",
+  "description": "Countries application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCassio1/countrify.git"
+  },
+  "author": "Joselson Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JCassio1/countrify/issues"
+  },
+  "homepage": "https://github.com/JCassio1/countrify#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
