@@ -7,7 +7,8 @@ const errorHandler = function (errorCode) {
 
   switch (errorCode) {
     case errorCodes.notFound:
-      errorMessage = "Country not found"
+      errorMessage = "Continent or region not found"
+      new NotFoundError(errorMessage)
       break
 
     default:
@@ -16,19 +17,7 @@ const errorHandler = function (errorCode) {
   return errorMessage
 }
 
-export class ForbiddenError extends Error {
-  constructor(message) {
-    super(message)
-
-    this.name = "ForbiddenError"
-    this.description =
-      "Error encountered fetching an API having a response with 403 status code."
-
-    Error.captureStackTrace && Error.captureStackTrace(this, ForbiddenError)
-  }
-}
-
-export class NotFoundError extends Error {
+class NotFoundError extends Error {
   constructor(message) {
     super(message)
 
@@ -39,3 +28,5 @@ export class NotFoundError extends Error {
     Error.captureStackTrace && Error.captureStackTrace(this, NotFoundError)
   }
 }
+
+export default errorHandler

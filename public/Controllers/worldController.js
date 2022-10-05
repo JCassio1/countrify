@@ -148,8 +148,8 @@ const getRegionData = function (region) {
       renderCountryTemplate(data)
     })
     .catch((error) => {
-      console.error(`An error has occured. ${error}`)
-      renderError(error)
+      renderError(error, bodyContainer)
+      // throw error
     })
 }
 

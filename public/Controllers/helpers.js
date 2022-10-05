@@ -1,4 +1,5 @@
 import { TIMEOUT_TIME } from "./configuration/config.js"
+import errorHandler from "./errors.js"
 
 const timeout = function (time) {
   return new Promise(function (_, reject) {
@@ -14,7 +15,8 @@ export const fetchJsonData = async function (url) {
     const res = await Promise.race([fetchData, timeout(TIMEOUT_TIME)])
     const data = await res.json()
 
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`)
+    if (!res.ok) throw new Error(errorHandler(res.status))
+
     return data
   } catch (err) {
     throw err

@@ -1,7 +1,14 @@
 import { API_URL } from "./configuration/config.js"
 import { fetchJsonData } from "./helpers"
 
-export const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+export const continents = [
+  "Africa",
+  "Americas",
+  "Asia",
+  "Europe",
+  "Oceania",
+  "fuckania",
+]
 
 export const loadContinent = async function (continent) {
   try {
