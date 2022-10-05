@@ -1,13 +1,10 @@
 "use strict"
 
 import { loadContinent, continents } from "./dataModel"
+import { renderError } from "../view/renderError"
 
 const bodyContainer = document.querySelector("body")
 const continentsContainer = document.querySelector(".continents")
-
-const errorCodes = {
-  notFound: 404,
-}
 
 const maxCountriesPerContinent = 5 // change the number to display more countries per continent
 
@@ -117,29 +114,6 @@ const countryCardTemplate = function (countryData, index) {
     </div>
   </div>
     `
-}
-
-const errorHandler = function (errorCode) {
-  let errorMessage = "Something went wrong. "
-
-  switch (errorCode) {
-    case errorCodes.notFound:
-      errorMessage = "Country not found"
-      break
-
-    default:
-      break
-  }
-  return errorMessage
-}
-
-const renderError = function (errorText) {
-  const errorBanner = `
-    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-        <span class="font-medium">Something wrong happened!</span> ${errorText}
-    </div>
-    `
-  bodyContainer.insertAdjacentHTML("afterbegin", errorBanner)
 }
 
 const renderCountryTemplate = function (continentData) {
