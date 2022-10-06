@@ -1,14 +1,7 @@
 import { API_URL } from "./configuration/config.js"
 import { fetchJsonData } from "./helpers"
 
-export const continents = [
-  "Africa",
-  "Americas",
-  "Asia",
-  "Europe",
-  "Oceania",
-  "fuckania",
-]
+export const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
 
 export const loadContinent = async function (continent) {
   try {
@@ -16,8 +9,6 @@ export const loadContinent = async function (continent) {
 
     return data
   } catch (err) {
-    // Temp error handling
-    console.error(`${err} error`)
     throw err
   }
 }
