@@ -6,7 +6,6 @@ export const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
 export const loadContinent = async function (continent) {
   try {
     const data = await fetchJsonData(`${API_URL}${continent}`)
-
     return data
   } catch (err) {
     throw err
